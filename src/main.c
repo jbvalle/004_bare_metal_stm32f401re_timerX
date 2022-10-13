@@ -18,7 +18,7 @@ int main(void){
     // Set TIMER Prescaler to 1600
     TIM2->TIMx_PSC = 16000 - 1;
     // Set TIMER Autoreload value to 500
-    TIM2->TIMx_ARR = 250;
+    TIM2->TIMx_ARR = 500;
     // Reset Current value register of TIM
     TIM2->TIMx_CNT = 0;
     // Configure Counter to continue opon Overflow
