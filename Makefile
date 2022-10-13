@@ -29,7 +29,7 @@ TARGET_PATH = /usr/share/openocd/scripts/target/stm32f4x.cfg
 ## Flags ##
 ###########
 MARCH  = cortex-m4
-CFLAGS = -g -Wall -Wextra -mcpu=$(MARCH) -mthumb
+CFLAGS = -g -Wall -Wextra -mcpu=$(MARCH) -mthumb -I./$(INC_DIR)
 LFLAGS = -nostdlib -T $(LS) -Wl,-Map=$(DEB_DIR)/main.map
 
 #############
@@ -59,7 +59,9 @@ mk_obj_dir:
 mk_deb_dir:
 	mkdir -p $(DEB_DIR)
 
+edit:
+	vim -S Session.vim
 clean:
 	rm -rf $(SRC_DIR)/$(OBJ_DIR) $(DEB_DIR)
 
-.PHONY = clean  flash mk_deb_dir mk_obj_dir
+.PHONY = clean  flash mk_deb_dir mk_obj_dir edit
